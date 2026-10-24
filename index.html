@@ -1018,6 +1018,9 @@
         line-height: 2;
         max-width: 34em;
       }
+      .stage-body .spec[hidden] {
+        display: none;
+      }
       .stage-body .spec {
         margin-top: 18px;
         font-size: 0.84rem;
@@ -1470,10 +1473,6 @@
         border-bottom-color: var(--kei);
       }
       .tbl td:first-child {
-        font-weight: 900;
-      }
-      .tbl a.pdf {
-        color: var(--kei);
         font-weight: 900;
       }
       .p-cta {
@@ -2158,7 +2157,6 @@
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navList">メニュー</button>
       <ul id="navList">
         <li><a href="#ukeire">受け入れ案内</a></li>
-        <li><a href="#kyoka">許可・認定</a></li>
         <li><a href="#seihin">チップ製品</a></li>
         <li><a href="#saiyo">採用</a></li>
         <li><a href="#access">アクセス</a></li>
@@ -2393,19 +2391,6 @@
             </td>
           </tr>
           <tr>
-            <th>許認可</th>
-            <td>
-              産業廃棄物処分業許可(中間処理・木くず)第02428066480号<br />産業廃棄物収集運搬業許可
-              三重県・滋賀県・奈良県・京都府・大阪府・愛知県・兵庫県・和歌山県・石川県(2府7県)<br />一般廃棄物処分業許可
-              伊賀市 伊第8-25<br />一般廃棄物収集運搬業許可 伊賀市 伊第8-24<br />特定建設業許可
-              三重県知事許可(特-7)第11124号
-            </td>
-          </tr>
-          <tr>
-            <th>認定</th>
-            <td>発電利用に供する木質バイオマスの証明に係る事業者認定(三木連-第255037号)</td>
-          </tr>
-          <tr>
             <th>主要設備</th>
             <td>
               破砕機 タブグラインダー TG5000(米国Vermeer社製/処理能力225.6t/日(8h)/CAT C15 402kW)<br />篩い機(重光工業社製/チップ65mmアンダー・ダスト10mmアンダー)
@@ -2484,8 +2469,7 @@
           >
         </div>
         <div class="hub-sub">
-          <a href="#kyoka">許可・認定一覧</a><a href="#access">アクセス</a><a href="#faq">よくある質問</a
-          ><a href="#otoiawase">お問い合わせ</a>
+          <a href="#access">アクセス</a><a href="#faq">よくある質問</a><a href="#otoiawase">お問い合わせ</a>
         </div>
       </section>
 
@@ -2502,7 +2486,7 @@
     </div>
 
     <!-- =========================================================
-     内部ページ(#ukeire #kyoka #seihin #saiyo #access #faq #otoiawase)
+     内部ページ(#ukeire #seihin #saiyo #access #faq #otoiawase)
      ========================================================= -->
 
     <!-- ===== 受け入れ案内 ===== -->
@@ -2671,180 +2655,6 @@
       </section>
     </main>
 
-    <!-- ===== 許可・認定 ===== -->
-    <main class="page" id="page-kyoka" data-title="許可・認定" hidden>
-      <header class="p-hero">
-        <p class="crumb"><a href="#top">トップ</a> / 許可・認定</p>
-        <span class="en">PERMITS</span>
-        <h1>許可・認定一覧</h1>
-        <p class="p-lead">委託契約やマニフェストの手続きにお使いください。</p>
-      </header>
-
-      <section class="p-sec">
-        <h2 class="p-h2"><span class="no">01</span>産業廃棄物</h2>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th>許可の種類</th>
-                <th>許可自治体</th>
-                <th>許可番号</th>
-                <th>有効期限(まで)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>処分業(中間処理・破砕・木くず)<br /><small>破砕施設 225.6t/日(8h)</small></td>
-                <td>三重県</td>
-                <td>第02428066480号</td>
-                <td>2030年1月23日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>三重県</td>
-                <td>第02408066480号</td>
-                <td>2029年12月14日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>滋賀県</td>
-                <td>第02501066480号</td>
-                <td>2030年5月24日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>奈良県</td>
-                <td>第02900066480号</td>
-                <td>2031年2月20日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>京都府</td>
-                <td>第02600066480号</td>
-                <td>2030年6月17日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>大阪府</td>
-                <td>第02700066480号</td>
-                <td>2030年4月7日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>愛知県</td>
-                <td>第02300066480号</td>
-                <td>2030年12月13日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>兵庫県</td>
-                <td>第02803066480号</td>
-                <td>2031年1月18日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>和歌山県</td>
-                <td>第03000066480号</td>
-                <td>2030年11月17日</td>
-              </tr>
-              <tr>
-                <td>収集運搬業</td>
-                <td>石川県</td>
-                <td>第01706066480号</td>
-                <td>2031年4月5日</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note">
-          収集運搬はいずれも積替え・保管を含みません。取り扱う品目は木くずです(三重県の許可のみ、廃プラスチック類・紙くず・繊維くず・金属くず・ガラスくず等・がれき類を含む計7品目)。
-        </p>
-      </section>
-
-      <section class="p-sec">
-        <h2 class="p-h2"><span class="no">02</span>一般廃棄物・建設業・認定</h2>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th>許可・認定の種類</th>
-                <th>許可自治体</th>
-                <th>番号</th>
-                <th>有効期限(まで)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  産業廃棄物処理施設 設置許可<br /><small>木くずの破砕施設(TG5000) 225.6t/日・移動式としても使用</small>
-                </td>
-                <td>三重県</td>
-                <td>賀地防第3002号の2</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td>一般廃棄物処理施設 設置許可<br /><small>破砕施設(TG5000) 木くず・草 225.6t/日</small></td>
-                <td>三重県</td>
-                <td>賀地防第3001号</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td>一般廃棄物処分業</td>
-                <td>伊賀市</td>
-                <td>伊第8-25号</td>
-                <td>2028年3月31日</td>
-              </tr>
-              <tr>
-                <td>一般廃棄物収集運搬業</td>
-                <td>伊賀市</td>
-                <td>伊第8-24号</td>
-                <td>2028年3月31日</td>
-              </tr>
-              <tr>
-                <td>
-                  特定建設業許可<br /><small>土木一式・とび土工・石・鋼構造物・舗装・しゅんせつ・塗装・水道施設</small>
-                </td>
-                <td>三重県知事</td>
-                <td>(特-7)第11124号</td>
-                <td>2030年5月11日</td>
-              </tr>
-              <tr>
-                <td>三重県建設工事等 入札参加資格(土木一式)</td>
-                <td>三重県</td>
-                <td>令和8〜11年度 名簿登録</td>
-                <td>2030年5月31日</td>
-              </tr>
-              <tr>
-                <td>発電利用に供する木質バイオマスの証明に係る事業者認定</td>
-                <td>三重県木材組合連合会</td>
-                <td>三木連-第255037号</td>
-                <td>2028年3月31日</td>
-              </tr>
-              <tr>
-                <td>三重県木材業者登録</td>
-                <td>三重県木材組合連合会</td>
-                <td>上野木材業 第240号</td>
-                <td>2026年12月31日<br /><small>(毎年更新)</small></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note">一般廃棄物は伊賀市内が対象で、木や草に限ります。処分はリサイクルを目的としたチップ化です。</p>
-      </section>
-
-      <section class="p-sec">
-        <h2 class="p-h2"><span class="no">03</span>排出事業者の方へ</h2>
-        <dl class="kv">
-          <dt>委託契約書</dt>
-          <dd>雛形をご用意できます</dd>
-          <dt>マニフェスト</dt>
-          <dd>紙・電子の両方に対応(JWNET・イーリバース加入)</dd>
-          <dt>処理実績</dt>
-          <dd>計量証明書・計量伝票をお出しできます</dd>
-        </dl>
-      </section>
-    </main>
-
     <!-- ===== チップ製品 ===== -->
     <main class="page" id="page-seihin" data-title="チップ製品" hidden>
       <header class="p-hero">
@@ -2869,11 +2679,6 @@
               <dd>50m³箱車／30m³・12m³アームロール。自社配送・引き取りとも可</dd>
               <dt>品質</dt>
               <dd>含水率を測定しており、データを提出できます</dd>
-              <dt>認定</dt>
-              <dd>
-                発電利用に供する木質バイオマスの証明に係る事業者認定(三重県木材組合連合会
-                三木連-第255037号)。バイオマス発電用の燃料として、由来を証明して出荷できます。
-              </dd>
             </dl>
           </article>
           <article class="prod">
@@ -3183,9 +2988,9 @@
     <footer>
       <div class="hazard-band" aria-hidden="true"></div>
       <div class="foot-links">
-        <a href="#top">トップ</a><a href="#ukeire">受け入れ案内</a><a href="#kyoka">許可・認定</a
-        ><a href="#seihin">チップ製品</a><a href="#saiyo">採用</a><a href="#access">アクセス</a
-        ><a href="#faq">よくある質問</a><a href="#otoiawase">お問い合わせ</a>
+        <a href="#top">トップ</a><a href="#ukeire">受け入れ案内</a><a href="#seihin">チップ製品</a
+        ><a href="#saiyo">採用</a><a href="#access">アクセス</a><a href="#faq">よくある質問</a
+        ><a href="#otoiawase">お問い合わせ</a>
       </div>
       <div class="foot-in">
         <div class="foot-logo">株式会社伊賀林業</div>
@@ -3499,7 +3304,6 @@
             val: "2府7県",
             sub: "収集運搬の許可",
             text: "伐採木・剪定枝・根株・竹などの木くずを、産業廃棄物処分業(中間処理・木くず)の許可施設として受け入れます。収集運搬は三重・滋賀・奈良・京都・大阪・愛知・兵庫・和歌山・石川の2府7県で許可を取得しており、引き取りのご相談も可能です。",
-            spec: "許可番号 第02428066480号(処分業)",
             img: "assets/store.jpg",
             pcap: "受け入れた木くずの保管棟",
           },
@@ -3541,7 +3345,6 @@
             val: "伐る",
             sub: "特殊伐採にも対応",
             text: "造成工事に伴う伐採や、特殊伐採工事にも対応。建設業許可を持つ、山の現場のプロでもあります。工場に持ち込む前の「伐る」段階から、まるごとお任せください。",
-            spec: "特定建設業許可 三重県知事許可(特-7)第11124号",
           },
         ];
         const ring = document.getElementById("ring");
@@ -3637,7 +3440,9 @@
           hubSub.textContent = s.sub;
           document.getElementById("stTitle").textContent = s.title;
           document.getElementById("stText").textContent = s.text;
-          document.getElementById("stSpec").textContent = s.spec;
+          const specEl = document.getElementById("stSpec");
+          specEl.textContent = s.spec || "";
+          specEl.hidden = !s.spec;
           const fig = document.getElementById("stFig"),
             img = document.getElementById("stImg");
           if (s.img) {
@@ -3711,7 +3516,7 @@
 
       /* ===== 内部ページの切り替え(#ukeire などのハッシュで表示) ===== */
       (() => {
-        const ROUTES = ["ukeire", "kyoka", "seihin", "saiyo", "access", "faq", "otoiawase"];
+        const ROUTES = ["ukeire", "seihin", "saiyo", "access", "faq", "otoiawase"];
         const home = document.getElementById("home");
         const nav = document.querySelector("nav");
         const baseTitle = document.title;
