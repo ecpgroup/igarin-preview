@@ -1821,7 +1821,8 @@
         margin-bottom: 6px;
       }
       .only-waste[hidden],
-      .only-pickup[hidden] {
+      .only-pickup[hidden],
+      .sent .p-cta[hidden] {
         display: none;
       }
       .sent {
@@ -2916,18 +2917,17 @@
             <label class="f-row"><span>ご希望の日</span><input name="date" type="date" /></label>
           </div>
           <label class="f-row"><span>内容</span><textarea name="body" rows="5"></textarea></label>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none" />
           <p class="f-err" id="fErr" role="alert"></p>
           <button class="p-cta" type="submit">内容を確認して送信</button>
-          <p class="tbd-note">送信内容を確認したあと、メールソフトが開いて yamamoto@igarin.jp 宛てに送信できます。</p>
+          <p class="tbd-note">送信内容を確認したあと、このページからそのまま送信できます。</p>
         </form>
         <div class="sent" id="inqSent" hidden>
-          <h2 class="p-h2">送信内容の確認</h2>
+          <h2 class="p-h2" id="sentTitle">送信内容の確認</h2>
           <dl class="kv" id="sentList"></dl>
-          <p class="note">
-            下のボタンを押すと、この内容が入ったメールが開きます。そのまま送信してください(宛先:yamamoto@igarin.jp)。メールが開かない場合は、お電話(0595-39-1156)でも承ります。
-          </p>
-          <a class="p-cta" id="inqMail" href="mailto:yamamoto@igarin.jp">この内容をメールで送る</a>
-          <p class="note"><a href="mailto:yamamoto@igarin.jp">yamamoto@igarin.jp</a></p>
+          <p class="note" id="sentNote">この内容でよろしければ「この内容で送信する」を押してください。</p>
+          <p class="f-err" id="sendErr" role="alert"></p>
+          <button type="button" class="p-cta" id="inqSend">この内容で送信する</button>
           <button type="button" class="p-cta ghost" id="inqBack">入力に戻る</button>
         </div>
       </section>
@@ -3642,23 +3642,54 @@
             dd.textContent = v;
             list.append(dt, dd);
           }
-          {
-            const lines = [],
-              topic = fd.get("topic") || "";
-            for (const [k, v] of fd.entries()) {
-              if (String(v).trim()) lines.push((labels[k] || k) + "：" + v);
-            }
-            document.getElementById("inqMail").href =
-              "mailto:yamamoto@igarin.jp?subject=" +
-              encodeURIComponent("【HPお問い合わせ】" + topic) +
-              "&body=" +
-              encodeURIComponent(lines.join("\n") + "\n\n(伊賀林業ホームページのフォームより)");
+          // Formspree へ送る内容(項目名は日本語ラベルにして、受信メールで読みやすくする)
+          payload = { _subject: "【HPお問い合わせ】" + (fd.get("topic") || "") };
+          for (const [k, v] of fd.entries()) {
+            if (k === "_gotcha") payload._gotcha = v;
+            else if (String(v).trim()) payload[labels[k] || k] = v;
           }
+          if (form.email.value) payload._replyto = form.email.value;
+          setSentState("confirm");
           form.hidden = true;
           document.getElementById("inqSent").hidden = false;
           window.scrollTo(0, 0);
         });
-        document.getElementById("inqBack").addEventListener("click", () => {
+        let payload = null;
+        const sendBtn = document.getElementById("inqSend"),
+          backBtn = document.getElementById("inqBack"),
+          sendErr = document.getElementById("sendErr");
+        function setSentState(state) {
+          const done = state === "done";
+          document.getElementById("sentTitle").textContent = done ? "送信しました" : "送信内容の確認";
+          document.getElementById("sentNote").textContent = done
+            ? "お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡します。お急ぎの方はお電話(0595-39-1156)でも承ります。"
+            : "この内容でよろしければ「この内容で送信する」を押してください。";
+          sendBtn.hidden = backBtn.hidden = done;
+          sendBtn.disabled = state === "sending";
+          sendBtn.textContent = state === "sending" ? "送信中…" : "この内容で送信する";
+          if (state !== "error") sendErr.textContent = "";
+        }
+        sendBtn.addEventListener("click", async () => {
+          if (!payload) return;
+          setSentState("sending");
+          try {
+            const res = await fetch("https://formspree.io/f/mwlllvel", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify(payload),
+            });
+            if (!res.ok) throw new Error(res.status);
+            setSentState("done");
+            form.reset();
+            syncTopic();
+            payload = null;
+          } catch (_) {
+            setSentState("error");
+            sendErr.textContent =
+              "送信できませんでした。時間をおいて再度お試しいただくか、お電話(0595-39-1156)またはメール(yamamoto@igarin.jp)でご連絡ください。";
+          }
+        });
+        backBtn.addEventListener("click", () => {
           form.hidden = false;
           document.getElementById("inqSent").hidden = true;
         });
