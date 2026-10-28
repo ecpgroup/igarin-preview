@@ -1109,6 +1109,14 @@
         display: block;
         filter: saturate(0.9) contrast(1.05);
       }
+      @media (prefers-reduced-motion: reduce) {
+        .onsite-video video {
+          display: none;
+        }
+        .onsite-video {
+          background: url(assets/onsite_poster.jpg) center/cover;
+        }
+      }
       .onsite-video::after {
         content: "";
         position: absolute;
@@ -2227,10 +2235,18 @@
       <!-- ================= ON SITE：実写 ================= -->
       <section class="onsite" id="onsite">
         <div class="onsite-video">
-          <img
-            src="assets/yard1.jpg"
-            alt="カラーコーンとバーで区画した屋外ヤードで、チップの山の横に停まるバックホー"
-          />
+          <video
+            id="siteVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/onsite_poster.jpg"
+            aria-label="屋外ヤードで、バックホーが選別機にチップを投入し、コンベヤでコンテナへ積み込む様子"
+          >
+            <source src="assets/onsite.mp4" type="video/mp4" />
+          </video>
           <div class="onsite-cap">
             <span class="en">ON SITE</span>
             <h2 class="slam">これが、伊賀の現場。</h2>
