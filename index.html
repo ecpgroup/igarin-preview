@@ -1101,7 +1101,8 @@
         min-height: 380px;
         overflow: hidden;
       }
-      .onsite-video video {
+      .onsite-video video,
+      .onsite-video img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -1198,14 +1199,6 @@
         font-weight: 700;
         opacity: 0.7;
         margin-top: 6px;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .onsite-video video {
-          display: none;
-        }
-        .onsite-video {
-          background: url(assets/site_poster.jpg) center/cover;
-        }
       }
 
       /* ===== SPEC：ダンプ換算 ===== */
@@ -2234,18 +2227,10 @@
       <!-- ================= ON SITE：実写 ================= -->
       <section class="onsite" id="onsite">
         <div class="onsite-video">
-          <video
-            id="siteVideo"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="assets/site_poster.jpg"
-            aria-label="屋外ヤードで、細かい根や枝に付いた土をふるい分けている様子と、奥で動くバックホー"
-          >
-            <source src="assets/site.mp4" type="video/mp4" />
-          </video>
+          <img
+            src="assets/yard1.jpg"
+            alt="カラーコーンとバーで区画した屋外ヤードで、チップの山の横に停まるバックホー"
+          />
           <div class="onsite-cap">
             <span class="en">ON SITE</span>
             <h2 class="slam">これが、伊賀の現場。</h2>
@@ -2262,11 +2247,7 @@
             <figcaption>主役のタブグラインダー TG5000</figcaption>
           </figure>
           <figure>
-            <img
-              src="assets/yard1.jpg"
-              alt="カラーコーンとバーで区画した屋外ヤードで、チップの山の横に停まるバックホー"
-              loading="lazy"
-            />
+            <img src="assets/pile1.jpg" alt="カラーコーンとバーで区画したチップの山と、コンベヤ" loading="lazy" />
             <figcaption>コーンとバーで区画した屋外ヤード</figcaption>
           </figure>
         </div>
@@ -2680,7 +2661,7 @@
 
     <!-- ===== チップ製品 ===== -->
     <main class="page" id="page-seihin" data-title="チップ製品" hidden>
-      <header class="p-hero photo" style="--bg: url(assets/yard2.jpg)">
+      <header class="p-hero photo" style="--bg: url(assets/yard1.jpg)">
         <p class="crumb"><a href="#top">トップ</a> / チップ製品</p>
         <span class="en">PRODUCTS</span>
         <h1>チップ、<br />用途に合わせて。</h1>
@@ -2754,15 +2735,17 @@
 
       <section class="p-sec">
         <h2 class="p-h2"><span class="no">—</span>出荷</h2>
-        <p class="body">できたチップは、ふるい分けてからコンベヤで荷台に積み込み、出荷します。</p>
+        <p class="body">
+          できたチップは、コンベヤで荷台に積み込んで出荷します。作業エリアはコーンとバーで区画しています。
+        </p>
         <div class="chip-photos">
           <figure>
             <img src="assets/pile1.jpg" alt="カラーコーンとバーで区画したチップの山と、コンベヤ" loading="lazy" />
             <figcaption><b>保管</b>コーンで区画したチップの山</figcaption>
           </figure>
           <figure>
-            <img src="assets/sort1.jpg" alt="テントの中の選別機から、コンベヤでチップを送り出す様子" loading="lazy" />
-            <figcaption><b>ふるい分け</b>テントの中の選別機から</figcaption>
+            <img src="assets/cone1.jpg" alt="重機のまわりをカラーコーンとバーで区画した作業エリア" loading="lazy" />
+            <figcaption><b>区画</b>重機のまわりはコーンとバーで区画</figcaption>
           </figure>
           <figure>
             <img src="assets/ship1.jpg" alt="コンベヤからコンテナの荷台へチップを積み込む様子" loading="lazy" />
@@ -3381,8 +3364,8 @@
             sub: "mmアンダー",
             text: "重光工業製の篩い機で、チップ(65mmアンダー)とダスト(10mmアンダー)に選別。燃料用・肥料用・敷料用、それぞれの用途に合わせて出荷します。細かい根や枝に付いた土もふるい分けて取り除きます。",
             spec: "チップ 65mm／ダスト 10mm アンダー",
-            img: "assets/screen1.jpg",
-            pcap: "篩い機への投入。作業エリアはコーンとバーで区画しています",
+            img: "assets/chip3.jpg",
+            pcap: "ふるい分けたダスト(左)とチップ(右)",
           },
           {
             name: ["チップ", "販売"],
